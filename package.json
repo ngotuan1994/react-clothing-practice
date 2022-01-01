@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "react-clothing-practice-01",
+=======
+  "name": "react-clothing-practice",
+>>>>>>> 1eed2add56766e4127277fbe2be14d5090b32dc3
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,7 +13,10 @@
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+<<<<<<< HEAD
     "react-router-dom": "^6.2.1",
+=======
+>>>>>>> 1eed2add56766e4127277fbe2be14d5090b32dc3
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.2"
   },
