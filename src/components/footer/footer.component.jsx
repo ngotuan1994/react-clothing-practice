@@ -11,7 +11,7 @@ const Footer = () => {
 
 			<div className="footer-left">
         <div>
-          <Logo classname="logo"></Logo>
+          <Logo className="logo"></Logo>
 
         </div>
 

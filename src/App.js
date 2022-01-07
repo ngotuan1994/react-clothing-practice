@@ -5,8 +5,7 @@ import Homepage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
-// import Contact from './components/contact/contact.component'
-
+import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 function App() {
   return (
     <div>
@@ -14,7 +13,7 @@ function App() {
         <Routes>
           <Route  path="/" element={<Homepage/>} ></Route>
           <Route path='/shop' element={<ShopPage />}></Route>
-          {/* <Route path='/contact' element={<Contact />}></Route>  */}
+          <Route path='/Signin' element={<SignInAndSignUpPage></SignInAndSignUpPage>}></Route>
         </Routes>
         <Footer></Footer>
     </div>
