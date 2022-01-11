@@ -19,4 +19,9 @@
     color: black;
     border: 1px solid black;
   }
-}
+
+};
+
+.custom-button + .custom-button {
+  margin-left: 10px;
+};
