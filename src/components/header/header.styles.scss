@@ -20,7 +20,13 @@
 
     .option {
       padding: 10px 15px;
-
+      cursor: pointer;
+    }
+    .option:hover {
+      background: rgb(25, 57, 143);
+      color:white;
+      transform: scale(0.9);
+      transition: 0.5s;
     }
   }
 }

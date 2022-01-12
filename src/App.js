@@ -7,8 +7,7 @@ import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import { auth } from "./firebase/firebase.utils"
-import { useState, useEffect ,useRef} from 'react';
-
+import { createUserPorfileDocument } from './firebase/firebase.utils';
 class App extends React.Component {
   constructor() {
     super();
@@ -18,14 +17,33 @@ class App extends React.Component {
   }
   unsubcribeFromAuth = null;
   componentDidMount() {
-    this.unsubcribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
-      console.log(user);
-    })
+    this.unsubcribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+          const userRef = await createUserPorfileDocument(userAuth);
+          userRef.onSnapshot(snapShot => {
+            this.setState({
+              currentUser: {
+                id: snapShot.id,
+                ...snapShot.data()
+              }
+            }, () => {
+              console.log(this.state.currentUser);
+            })
+          })
+        }
+      else {
+          this.setState({ currentUser: userAuth });
+      }
+
+    });
   }
+
   componentWillUnmount() {
     this.unsubcribeFromAuth();
   }
+
+
+
   render() {
     return (
       <div>
@@ -38,7 +56,8 @@ class App extends React.Component {
         <Footer></Footer>
       </div>
     );
-  }
+
+  };
 }
 
 export default App;
